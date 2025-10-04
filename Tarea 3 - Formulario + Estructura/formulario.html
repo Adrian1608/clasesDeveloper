@@ -1,0 +1,309 @@
+<!-- Esta es la tarea referente a los inputs y fieldsets-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario v3.1</title>
+    <style>
+        html{
+            background-color: rgb(155, 215, 235);
+        }
+
+        body{
+            background-color: white;
+            border-radius: 2em;
+            border: 0.25rem solid;
+            border-color: rgb(32, 124, 155);
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+            margin-right: 10%;
+            margin-left: 10%;
+            padding: 2.5%;
+        }
+
+        h2{
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            font-size: 200%;
+        }
+
+        main{
+            margin-top: 2.5%;
+            margin-right: 5%;
+            margin-left: 5%;
+        }
+
+        fieldset{
+            border-radius: 2em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        input{
+            margin-left: 2.5%;
+            border-radius: 2em;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+            border-style: inset;
+            border-color: rgb(129, 211, 238);            
+        }
+
+        #field1{
+            padding-top: 2.5%;
+            margin-bottom: 2.5%;
+        }        
+
+        #field1 > input{
+            display: block;
+        }
+
+        #field2{
+            display: none;
+            padding-top: 2.5%;
+            margin-bottom: 2.5%;
+        }
+
+        #field2 > input{
+            display: block;
+        }
+
+        #field3{
+            display: none;
+            padding-top: 2.5%;
+            margin-bottom: 2.5%;
+        }
+
+        #field3 > input{
+            display: block;
+        }      
+        
+        #field4{
+            display: none;
+            padding-top: 2.5%;
+            margin-bottom: 2.5%;
+        }
+
+        #field4 > input{
+            display: block;
+        }      
+        
+        #ending{
+            display: none;
+            padding-top: 2.5%;
+            margin-bottom: 2.5%;
+        }
+
+        fieldset > div{
+            padding: 1%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        legend{
+            font-size: 120%;
+            font-weight: bold;
+        }
+
+        .radio-label{
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        .button-div{
+            margin-top: 2.5%;
+            text-align: center;
+        }
+
+        button{
+            border-radius: 2em;
+            border-color: rgb(155, 215, 235);
+            background-color: rgb(155, 215, 235);
+            padding-top: 2%;
+            padding-bottom: 2%;            
+            padding-left: 5%;
+            padding-right: 5%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;            
+        }
+
+        #progress-label{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 2.5%;
+        }
+
+        progress{
+            width: 50%;
+            padding: 2.5%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
+            margin-bottom: 2.5%;
+        }
+
+        .progress-div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img{
+            display: block;
+            margin: auto;
+        }
+
+        select{
+            margin-left: 2.5%;
+            border-radius: 2em;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+            border-style: inset;
+            border-color: rgb(129, 211, 238);            
+        }
+
+        #extra-validation{
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Formulario potencialmente laboral</h2>
+    </header>
+    <main>
+        <div class="progress-div">
+            <label id="progress-label" for="progress-bar">0%</label>
+            <progress id="progress-bar" max="100" value="0"></progress>
+        </div>                
+        <form id="first-form">
+            <fieldset id="field1">
+                <legend>1.- Información básica y de contacto</legend>
+                <div>
+                    <label for="dni">Documento de Identidad:</label><input type="text" placeholder="Escribir DNI..." id="dni">
+                </div>                
+                <div>
+                    <label for="name">Nombres:</label><input type="text" placeholder="Escribir nombres..." id="name">
+                </div>
+                <div>
+                    <label for="lastname">Apellidos:</label><input type="text" placeholder="Escribir apellidos..." id="lastname">
+                </div>
+                <div>
+                    <label for="birthday">Fecha de nacimiento:</label><input type="date" name="birthday" id="birthday">
+                </div>
+                <div>
+                    <label>Género:</label>
+                    <input type="radio" name="gender" value="Hombre" id="male"><label class="radio-label" for="male">Hombre</label>
+                    <input type="radio" name="gender" value="Mujer" id="female"><label class="radio-label" for="female">Mujer</label>
+                    <input type="radio" name="gender" value="Prefiero no decir" id="none"><label class="radio-label" for="none">Prefiero no decir</label>
+                </div>                
+                <div>
+                    <label for="email">Correo:</label><input type="email" placeholder="Escribir correo..." name="email" id="email">
+                </div>                
+                <div>
+                    <label for="phone">Número de teléfono:</label><input type="tel" placeholder="Escribir teléfono..." name="phone" id="phone">
+                </div>                
+                <div class="button-div">
+                    <button onclick="onFinishForm(event,1)">Siguiente</button>
+                </div>
+            </fieldset>
+            <fieldset id="field2">
+                <legend>2.- Información de ubicación</legend>
+                <div>
+                    <label for="department">Departamento:</label><input type="text" placeholder="Escribir departamento..." id="department">
+                </div>                
+                <div>
+                    <label for="province">Provincia:</label><input type="text" placeholder="Escribir provincia..." id="province">
+                </div>                        
+                <div>
+                    <label for="district">Distrito:</label><input type="text" placeholder="Escribir distrito..." id="district">
+                </div>                                                        
+                <div>
+                    <label for="address">Dirección:</label><input type="text" placeholder="Escribir dirección..." id="address">                    
+                </div>
+                <div class="button-div">
+                    <button onclick="onFinishForm(event,2)">Siguiente</button>
+                </div>
+            </fieldset>
+            <fieldset id="field3">
+                <legend>3.- Información laboral (última experiencia)</legend>
+                <div>
+                    <label for="company">Compañía:</label><input type="text" placeholder="Escribir nombre..." id="company">
+                </div>
+                <div>
+                    <label for="position">Puesto:</label><input type="text" placeholder="Escribir puesto..." id="position">
+                </div>
+                <div>
+                    <label for="rank">Rango:</label>
+                    <select name="rank" id="rank">
+                        <option value="trainee">Trainee</option>
+                        <option value="junior" selected>Junior</option>
+                        <option value="mid">Mid</option>
+                        <option value="senior">Senior</option>                                                                        
+                    </select>
+                </div>
+                <div>
+                    <label for="experience">Años de experiencia:</label><input type="number" placeholder="Escribir años..." name="experience" id="experience">
+                </div>                
+                <div>
+                    <label for="experience">Adjuntar CV:</label><input type="file" name="curriculum" id="curriculum" accept="application/pdf">
+                </div>                                
+                <div class="button-div">
+                    <button onclick="onFinishForm(event,3)">Siguiente</button>
+                </div>
+            </fieldset>            
+            <fieldset id="field4">
+                <legend>4.- Información final</legend>
+                <div>
+                    <label for="experience">¿Toda la información brindada ha sido verídica?</label>
+                    <input type="radio" name="validation" value="Sí" id="yes"><label class="radio-label" for="yes">Sí</label>
+                    <input type="radio" name="validation" value="No" id="no"><label class="radio-label" for="no">No</label>
+                </div>                
+                <div>
+                    <input type="checkbox" class="checkbox-input" id="extra-validation">                    
+                    <label for="extra-validation">Quiero recibir más información de la compañía en mi correo</label>
+                </div>                                
+                <div class="button-div">
+                    <button onclick="onFinishForm(event,4)">Enviar</button>
+                </div>
+            </fieldset>                        
+            <div id="ending">
+                <img src="https://cdn-icons-png.flaticon.com/512/5372/5372211.png" width="25%">
+                <h2>MUCHAS GRACIAS POR PARTICIPAR</h2>
+            </div>
+        </form>
+    </main>
+    <script>
+
+        let progressValue = 0;
+
+        //La funcion recibe un formNumber, este determina qué se esconderá y qué se mostrará        
+        function onFinishForm(event,formNumber){
+            event.preventDefault();
+            updateProgressBar();
+
+            switch(formNumber){
+                case 1: hideFirstQueryAndShowSecondQuery('#field1','#field2'); break;
+                case 2: hideFirstQueryAndShowSecondQuery('#field2','#field3'); break;
+                case 3: hideFirstQueryAndShowSecondQuery('#field3','#field4'); break;
+                case 4: hideFirstQueryAndShowSecondQuery('#field4','#ending'); break;
+                default: document.querySelector('#field').style.display = 'none';
+            }
+        }
+
+        function updateProgressBar(){
+            progressValue += 25;
+            document.querySelector('#progress-bar').value = progressValue;
+            document.querySelector('#progress-label').innerHTML = progressValue + '%';            
+        }
+
+        function hideFirstQueryAndShowSecondQuery(firstField, secondField){
+            document.querySelector(firstField).style.display = 'none';
+            document.querySelector(secondField).style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
