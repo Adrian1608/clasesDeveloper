@@ -92,10 +92,10 @@ main{
     margin-left: 95%;
 }
 
-/*Se está quitando un elemento de "flecha" que tiene el datalist por defecto con Chrome para que se asemeje más a la tarea*/
+/*Se está quitando un elemento de "flecha" que tiene el datalist por defecto con Chrome para que se asemeje más a la tarea
 input::-webkit-calendar-picker-indicator{
     display: none !important;
-}
+}*/
 
 a{
     color: white;
