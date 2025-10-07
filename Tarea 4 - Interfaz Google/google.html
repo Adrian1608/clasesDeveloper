@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva pestaña</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=apps,search"/>
+</head>
+<body>
+    <header>
+        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">Gmail</a>
+        <a href="https://www.google.com/imghp?hl=es-419&tab=ri&authuser=0&ogbl">Imágenes</a>        
+        <a><span id="apps-icon" class="material-symbols-outlined">apps</span></a>                
+        <a><img id="profile" src="resources/profile.png"></a>                        
+    </header>
+    <main>
+        <img class="google-logo" src="./resources/google_logo.svg">
+        <div class="search-div">
+            <span id="search-icon" class="material-symbols-outlined">search</span>
+                <input onclick="searchInput(event)" onkeyup="searchInput(event)" onblur="emptyInput()"
+                class="search-bar" id="search" type="text" placeholder="Busca en Google o escribe una URL" list="search-list" autocomplete="off">
+                <!--Intenté usar datalist, pero por un tema del SO + navegador no replica muy bien el comportamiento del Google original-->
+            <!--<datalist id="search-list">
+                <option value="Busqueda 1">Busqueda 1</option>
+                <option value="Busqueda 2">Busqueda 2</option>
+                <option value="Busqueda 3">Busqueda 3</option>                                
+                <option value="Busqueda 4">Busqueda 4</option>
+                <option value="Busqueda 5">Busqueda 5</option>
+                <option value="Busqueda 6">Busqueda 6</option>                                
+                <option value="Busqueda 7">Busqueda 7</option>
+                <option value="Busqueda 8">Busqueda 8</option>
+                <option value="Busqueda 9">Busqueda 9</option>                                
+                <option value="Busqueda 10">Busqueda 10</option>                                                                                
+            </datalist>-->
+            <img class="mic-icon" src="resources/mic.svg">
+            <img class="camera-icon" src="resources/camera.svg">
+        </div>
+        <div class="results-div">
+        </div>
+    </main>
+    <footer>
+        <!--Aca van los elementos inferiores-->
+    </footer>
+    <script src="script.js"></script>    
+</body>
+</html>

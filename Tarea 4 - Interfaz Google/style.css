@@ -1,0 +1,111 @@
+html{
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(68, 87, 96);
+    margin: 0;
+}
+
+header{
+    height: 10%;    
+    padding: 0rem 1.5rem 1.5rem 1.5rem;    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+main{
+    margin-top: 3%;
+    justify-items: center;
+}
+
+.google-logo{
+    width: 20%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2.35rem;        
+    filter: brightness(50); /*Aplica filtro de brillo, desde 50 queda prácticamente blanco*/
+}
+
+.search-div{
+    width: 55%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 3rem;
+    align-items: center;
+    position: relative;
+    justify-content: start;        
+}
+
+.results-div{
+    width: 55%;
+    position: absolute;
+}
+
+.search-result{
+    background: white;
+    padding: 0.4rem 0.4rem 0.4rem 3rem;
+}
+
+.search-result:hover{
+    background: rgb(209, 204, 204);
+}
+
+#search-icon{   
+    position: absolute;
+    padding-left: 1.2rem;
+    color: rgb(95, 99, 104);
+    font-size: 1.35rem;
+}
+
+.search-bar{
+    background: none;
+    width: 100%;
+    padding: 0.9rem 5rem 0.9rem 3.5rem;
+    border-radius: 3rem;
+    border-style: none;
+    font-size: 0.95rem;
+    text-overflow: ellipsis;
+}
+
+.search-bar:focus-visible{
+    outline: none;
+}
+
+.mic-icon{
+    position: absolute;
+    width: 2.75%;
+    margin-left: 90%;
+}
+
+.camera-icon{
+    position: absolute;    
+    width: 2.75%;
+    margin-left: 95%;
+}
+
+/*Se está quitando un elemento de "flecha" que tiene el datalist por defecto con Chrome para que se asemeje más a la tarea*/
+input::-webkit-calendar-picker-indicator{
+    display: none !important;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#profile{
+    border-radius: 100%;
+}
