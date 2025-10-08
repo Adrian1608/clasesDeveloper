@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    margin: 2rem;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: darksalmon;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+section {
+    padding: 1rem;
+}
+
+a{
+    margin: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+/*Extra - :hover*/
+a:hover{
+    background-color: rgb(187, 52, 52);
+    color: white;
+    border-radius: 1.5rem;
+    box-shadow: 0rem 0rem 0.5rem 0.5rem rgb(87, 84, 84,0.25);    
+}
+
+p{
+    font-size: 0.25rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+h4 {
+    font-size: 0.75rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+h5 {
+    font-size: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;    
+}
+
+article{
+    display: flex;
+    justify-content: center;
+}
+
+.first-section{
+    width: 50%;
+
+    /*1. :nth-child */
+    p:nth-child(2n+1){ /*p:nth-child(odd)*/
+        background-color: rgb(92, 182, 3);
+    }
+
+    p:nth-child(2n){ /*p:nth-child(even)*/
+        background-color: greenyellow;
+    }
+
+    p:nth-child(9){
+        background-color: green;
+    }
+
+    p:nth-child(-n+2){
+        background-color: rgb(96, 134, 57);
+    }
+
+    /*2. :first-child - equivalente a :nth-child(1)*/
+    p:first-child{
+        font-size: 1rem;
+        color: white;
+    }    
+}
+
+.second-section{
+    width: 50%;
+
+    /*3. :nth-last-child*/
+    p:nth-last-child(2n+1){
+        background-color: rgb(92, 182, 3);
+    }
+
+    p:nth-last-child(2n){ 
+        background-color: greenyellow;
+    }    
+
+    p:nth-last-child(9){
+        background-color: green;
+    }
+
+    p:nth-last-child(-n+2){
+        background-color: rgb(96, 134, 57);
+    }    
+
+    /*4. :last-child - equivalente a :nth-last-child(1)*/
+    p:last-child{
+        font-size: 1rem;
+        color: white;        
+    }
+
+}
+
+.third-section {
+    width: 50%;
+
+    /*5. :nth-of-type*/
+    p:nth-of-type(2n){
+        background-color: rgb(139, 139, 255);
+    }
+
+    p:nth-of-type(2n+1){
+        background-color: rgb(57, 57, 255);
+    }
+
+    h4:nth-of-type(-n+2){
+        background-color: rgb(255, 82, 82);
+    }
+
+    h5:nth-of-type(n){
+        background-color: rgb(206, 8, 8);
+        color: white;
+    }
+
+    h5:nth-of-type(4){
+        background-color: rgb(21, 21, 253);
+        color: white;
+        font-size: 1rem;
+    }
+
+    /*6. :first-of-type - equivalente a :nth-of-type(1)*/
+    h4:first-of-type{
+        background-color: rgb(104, 20, 20);
+        color: white;
+    }
+
+}
+
+.fourth-section {
+    width: 50%;
+
+    /*7. :nth-last-of-type*/
+    p:nth-last-of-type(2n){
+        background-color: rgb(139, 139, 255);
+    }
+
+    p:nth-last-of-type(2n+1){
+        background-color: rgb(57, 57, 255);
+    }
+
+    h4:nth-last-of-type(-n+2){
+        background-color: rgb(255, 82, 82);
+    }
+
+    h5:nth-last-of-type(n){
+        background-color: rgb(206, 8, 8);
+        color: white;
+    }    
+
+    h5:nth-last-of-type(4){
+        background-color: rgb(21, 21, 253);
+        color: white;
+        font-size: 1rem;
+    }
+
+    /*:8. :last-of-type - equivalente a :nth-last-of-type(1)*/
+    h4:last-of-type{
+        background-color: rgb(104, 20, 20);
+        color: white;
+    }
+
+}
+
+.fifth-section{
+    width: 50%;
+
+    p{
+        font-size: 1rem;
+    }
+
+    div{
+        background-color: rgb(241, 107, 241);
+    }
+
+    /*9. :only-child*/
+    p:only-child{
+        background-color: rgb(128, 13, 128);
+        color: white;
+        padding: 1.5rem;
+    }
+}
+
+.sixth-section{
+    width: 50%;
+
+    p{
+        font-size: 1rem;
+    }
+
+    h4{
+        font-size: 1.1rem;
+    }
+
+    h5{
+        font-size: 1.2rem;
+    }
+
+    div{
+        background-color: rgb(241, 107, 241);
+    }
+    
+    /*10. :only-of-type*/    
+    h4:only-of-type{
+        background-color: rgb(128, 13, 128);
+        color: white;
+        padding: 1.5rem;
+    }
+}

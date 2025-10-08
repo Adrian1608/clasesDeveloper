@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body{
+    padding: 10%;
+}
+
+.button-container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    background-color: rgb(236, 224, 224);    
+    padding: 1rem;    
+    border-radius: 3rem;
+    border: rgb(32, 32, 32) 0.15rem solid;
+}
+
+button:active{
+    background-color: rgb(209, 197, 197);    
+    border: rgb(32, 32, 32) 0.15rem solid;
+    transform: scale(0.95);
+    box-shadow: 0rem 0rem 0.25rem 0.25rem rgb(87, 84, 84,0.25);    
+}

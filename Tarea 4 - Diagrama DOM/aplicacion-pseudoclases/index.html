@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de pseudoclases</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <a href="#firstArticle">:nth-child & :nth-last-child (4 pseudoclases)</a>
+        <a href="#secondArticle">:nth-of-type & nth-last-of-type (4 pseudoclases)</a>
+        <a href="#thirdArticle">:only-child & :only-of-type (2 pseudoclases)</a>                
+    </header>
+    <main>
+        <article id="firstArticle">
+            <!--Los textos de "Ejemplos" no van en etiquetas porque el nth-child los consideraría hijos y afectaría los estilos-->
+            <section class="first-section">
+                Ejemplos con :nth-child
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>                                
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>                                 
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>                                                               
+            </section>
+            <section class="second-section">
+                Ejemplos con :nth-last-child                                                                    
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>                                
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>                                 
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>                                                                               
+            </section>            
+        </article>
+        <article id="secondArticle">
+            <!--Los textos de "Ejemplos" no van en etiquetas solo por mantener el estilo, pero no habría problema con ponerlas si es que no fueran de las que son afectadas por los estilos (p,h4,h5)-->                            
+            <section class="third-section">
+                Ejemplos con :nth-of-type
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>                
+            </section>
+            <section class="fourth-section">
+                Ejemplos con :nth-last-of-type                                                             
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</p>
+                <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h5>                                
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, odio! Veritatis dolorum porro nostrum perspiciatis a sunt exercitationem, natus iste architecto, sit voluptatum nobis corrupti fugit error blanditiis impedit pariatur.</h4>                
+            </section>            
+        </article>
+        <article id="thirdArticle">
+            <section class="fifth-section">
+                Ejemplos con :only-child
+                <div>
+                    <p>Adrian</p>
+                    <p>Adriana</p>
+                </div>
+                <div>
+                    <p>Euberto</p>
+                </div>
+                <div>
+                    <p>Lolo</p>                                 
+                    <p>Lili</p>
+                    <p>Lulu</p>                
+                </div>
+                <div>
+                    <p>Rafael</p>
+                </div>                
+                <div>
+                    <p>Sandra</p>                                                    
+                    <p>Sandro</p>                                                               
+                </div>
+            </section>
+            <section class="sixth-section">
+                Ejemplos con :only-of-type                                                                  
+                <div>
+                    <p>Adrian</p>
+                    <p>Adriana</p>
+                </div>
+                <div>
+                    <p>Euberto</p>
+                    <h5>Roberto</h5>
+                </div>
+                <div>
+                    <p>Lolo</p>                                 
+                    <h4>Lili</h4>
+                    <h5>Lulu</h5>                
+                </div>
+                <div>
+                    <h4>Rafael</h4>
+                    <p>Rafaela</p>
+                </div>                
+                <div>
+                    <h5>Sandra</h5>                                                    
+                    <h5>Sandro</h5>                                                               
+                </div>
+            </section>            
+        </article>        
+    </main>
+    <footer>
+        
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>

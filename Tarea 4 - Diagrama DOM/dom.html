@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es" data-app="tarea-dom">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Documento HTML extenso y profundamente anidado para practicar DOM" />
+  <title>Tarea DOM — Documento Extenso</title>
+  <style>
+    /* Estilos mínimos para distinguir zonas (no afectan la práctica de DOM) */
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial; line-height: 1.45; }
+    header, nav, main, section, article, aside, footer { border: 1px dashed #ccc; padding: .5rem; margin: .5rem 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .deep { padding-left: .75rem; border-left: 3px solid #ddd; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: .25rem .5rem; }
+    details > * + * { margin-top: .25rem; }
+    .badge { display: inline-block; padding: .1rem .35rem; border-radius: .5rem; background: #eee; }
+    .stack > * + * { margin-top: .35rem; }
+  </style>
+</head>
+<body id="top" data-curso="javascript-dom" data-modulo="intro-dom">
+
+  <header id="site-header" role="banner" data-role="header">
+    <div class="stack">
+      <a class="sr-only" href="#contenido">Saltar al contenido</a>
+      <h1 data-title>Portal de Datos — <span class="badge" data-version="1.0.0">v1.0.0</span></h1>
+      <p id="intro" class="deep">Documento de práctica con <strong>muchos niveles</strong> de anidación y variedad de nodos.</p>
+
+      <nav id="nav-principal" aria-label="Navegación principal">
+        <ul class="deep">
+          <li>
+            <a href="#reportes" data-link="reportes">Reportes</a>
+            <ul>
+              <li>
+                <a href="#reportes-ventas">Ventas</a>
+              </li>
+              <li>
+                <a href="#reportes-marketing">Marketing</a>
+              </li>
+              <li>
+                <a href="#reportes-finanzas">Finanzas</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#equipo" data-link="equipo">Equipo</a>
+            <ul>
+              <li><a href="#equipo-desarrollo">Desarrollo</a></li>
+              <li><a href="#equipo-diseno">Diseño</a></li>
+              <li><a href="#equipo-datos">Datos</a></li>
+            </ul>
+          </li>
+          <li><a href="#ayuda" data-link="ayuda">Ayuda</a></li>
+        </ul>
+      </nav>
+
+      <nav id="migas" aria-label="Breadcrumb">
+        <ol class="deep" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="#top">
+              <span itemprop="name">Inicio</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="#reportes">
+              <span itemprop="name">Reportes</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Resumen</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" role="main" data-section="principal">
+    <section id="reportes" aria-labelledby="titulo-reportes" data-nivel="1">
+      <h2 id="titulo-reportes">Reportes</h2>
+
+      <article id="reportes-ventas" class="deep" data-area="ventas" data-anio="2025">
+        <header>
+          <h3>Reporte de Ventas 
+            <span class="badge" data-trimestre="Q1">Q1</span>
+          </h3>
+          <p>Resumen de regiones y canales.</p>
+        </header>
+        <div class="grid">
+          <section aria-label="Regiones">
+            <h4>Regiones</h4>
+            <ul>
+              <li>LatAm
+                <ul>
+                  <li>México
+                    <ul>
+                      <li>CDMX
+                        <ul>
+                          <li>Centro
+                            <ul>
+                              <li>Zona A
+                                <ul>
+                                  <li data-id="venta-001">Ticket 001</li>
+                                  <li data-id="venta-002">Ticket 002</li>
+                                  <li data-id="venta-003">Ticket 003</li>
+                                </ul>
+                              </li>
+                              <li>Zona B</li>
+                            </ul>
+                          </li>
+                          <li>Sur</li>
+                        </ul>
+                      </li>
+                      <li>Guadalajara</li>
+                    </ul>
+                  </li>
+                  <li>Argentina</li>
+                </ul>
+              </li>
+              <li>NA
+                <ul>
+                  <li>USA</li>
+                  <li>Canada</li>
+                </ul>
+              </li>
+              <li>EMEA</li>
+            </ul>
+          </section>
+          <section aria-label="Canales">
+            <h4>Canales</h4>
+            <ol>
+              <li>Online
+                <ol>
+                  <li>Web</li>
+                  <li>Móvil
+                    <ol>
+                      <li>iOS</li>
+                      <li>Android
+                        <ol>
+                          <li>Play Store</li>
+                          <li>APK</li>
+                        </ol>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>Retail</li>
+              <li>Partners</li>
+            </ol>
+          </section>
+        </div>
+
+        <section aria-label="Tabla de ventas" class="deep">
+          <h4>Resumen tabular</h4>
+          <table id="tabla-ventas" data-kind="resumen">
+            <caption>Ventas por región (Q1)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Región</th>
+                <th scope="col">País</th>
+                <th scope="col">Ingresos</th>
+                <th scope="col">Pedidos</th>
+                <th scope="col">% Crec.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3">LatAm</td>
+                <td>México</td>
+                <td data-currency="MXN">1,250,000</td>
+                <td>5,214</td>
+                <td>+12%</td>
+              </tr>
+              <tr>
+                <td>Argentina</td>
+                <td data-currency="ARS">980,000</td>
+                <td>3,142</td>
+                <td>+7%</td>
+              </tr>
+              <tr>
+                <td>Chile</td>
+                <td data-currency="CLP">720,000</td>
+                <td>2,450</td>
+                <td>+4%</td>
+              </tr>
+              <tr>
+                <td colspan="2">NA</td>
+                <td data-currency="USD">2,340,000</td>
+                <td>6,105</td>
+                <td>+9%</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Total</th>
+                <td data-currency="MIX">5,290,000</td>
+                <td>16,911</td>
+                <td>+8.1%</td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+
+        <aside aria-label="Notas" class="deep">
+          <h4>Notas</h4>
+          <details open>
+            <summary>Metodología</summary>
+            <p>Los datos provienen del 
+              <em>data warehouse</em>
+               y se consolidan cada 24h.
+            </p>
+            <details>
+              <summary>Fuentes</summary>
+              <ul>
+                <li>ETL Ventas</li>
+                <li>CRM</li>
+                <li>Analytics</li>
+              </ul>
+            </details>
+          </details>
+          <details>
+            <summary>Glosario</summary>
+            <dl>
+              <dt>Pedidos</dt>
+              <dd>Conteo de órdenes confirmadas.</dd>
+              <dt>Ingresos</dt>
+              <dd>Monto facturado sin impuestos.</dd>
+              <dt>Crecimiento</dt>
+              <dd>Variación vs periodo anterior.</dd>
+            </dl>
+          </details>
+        </aside>
+
+        <footer>
+          <p>Actualizado el 
+            <time datetime="2025-03-31">31 de marzo de 2025</time>.
+          </p>
+        </footer>
+      </article>
+
+      <article id="reportes-marketing" class="deep" data-area="marketing">
+        <header>
+          <h3>Reporte de Marketing</h3>
+          <p>Campañas, segmentación y embudo.</p>
+        </header>
+
+        <section class="deep" aria-label="Embudo">
+          <h4>Embudo</h4>
+          <ol>
+            <li>Impresiones
+              <ul>
+                <li>Orgánico</li>
+                <li>Pago
+                  <ul>
+                    <li>Search</li>
+                    <li>Display</li>
+                    <li>Social
+                      <ul>
+                        <li>Instagram</li>
+                        <li>TikTok
+                          <ul>
+                            <li>Influencers</li>
+                            <li>UGC</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Clicks</li>
+            <li>Leads</li>
+            <li>Ventas</li>
+          </ol>
+        </section>
+
+        <section class="deep" aria-label="Medios">
+          <h4>Medios</h4>
+          <article>
+            <h5>Video</h5>
+            <figure>
+              <video controls width="320">
+                <source src="media/ejemplo.mp4" type="video/mp4" />
+                Tu navegador no soporta video.
+              </video>
+              <figcaption>Resumen trimestral en video.</figcaption>
+            </figure>
+          </article>
+          <article>
+            <h5>Imagen</h5>
+            <figure>
+              <img src="media/placeholder.png" alt="Gráfica de barras" width="320" height="200" />
+              <figcaption>Desempeño por canal.</figcaption>
+            </figure>
+          </article>
+        </section>
+
+        <section class="deep" aria-label="Encuesta">
+          <h4>Encuesta de satisfacción</h4>
+          <form id="form-encuesta" action="#" method="post" data-form="encuesta">
+            <fieldset>
+              <legend>Información general</legend>
+              <div class="stack">
+                <label>Nombre
+                  <input type="text" name="nombre" required placeholder="Tu nombre" />
+                </label>
+                <label>Correo
+                  <input type="email" name="correo" required placeholder="tu@correo.com" />
+                </label>
+                <label>País
+                  <select name="pais">
+                    <optgroup label="LatAm">
+                      <option value="mx">México</option>
+                      <option value="ar">Argentina</option>
+                      <option value="cl">Chile</option>
+                    </optgroup>
+                    <optgroup label="NA">
+                      <option value="us">USA</option>
+                      <option value="ca">Canadá</option>
+                    </optgroup>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Experiencia</legend>
+              <div class="stack">
+                <label>
+                  <input type="radio" name="satisfaccion" value="alta" /> Alta
+                </label>
+                <label>
+                  <input type="radio" name="satisfaccion" value="media" /> Media
+                </label>
+                <label>
+                  <input type="radio" name="satisfaccion" value="baja" /> Baja
+                </label>
+                <label>
+                  Comentarios
+                  <textarea name="comentarios" rows="4" cols="30"></textarea>
+                </label>
+                <label>
+                  Acepto términos <input type="checkbox" name="acepto" required />
+                </label>
+              </div>
+            </fieldset>
+            <div class="stack">
+              <button type="submit">Enviar</button>
+              <button type="reset">Limpiar</button>
+            </div>
+          </form>
+        </section>
+
+        <footer>
+          <p>Contacto: 
+            <a href="mailto:marketing@example.com">marketing@example.com</a>
+          </p>
+        </footer>
+      </article>
+
+      <article id="reportes-finanzas" class="deep" data-area="finanzas">
+        <header>
+          <h3>Reporte de Finanzas</h3>
+          <p>Costos, utilidades y proyecciones.</p>
+        </header>
+
+        <section class="deep" aria-label="Proyecciones">
+          <h4>Proyecciones</h4>
+          <ul>
+            <li>2025
+              <ul>
+                <li>Q1</li>
+                <li>Q2
+                  <ul>
+                    <li>Escenario A</li>
+                    <li>Escenario B
+                      <ul>
+                        <li>Optimista</li>
+                        <li>Base</li>
+                        <li>Pesimista</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>Q3</li>
+                <li>Q4</li>
+              </ul>
+            </li>
+            <li>2026</li>
+            <li>2027</li>
+          </ul>
+        </section>
+
+        <section class="deep grid" aria-label="Métricas">
+          <article>
+            <h5>KPIs</h5>
+            <ul>
+              <li data-kpi="margen">Margen</li>
+              <li data-kpi="ebitda">EBITDA</li>
+              <li data-kpi="cac">CAC</li>
+              <li data-kpi="ltv">LTV</li>
+            </ul>
+          </article>
+          <article>
+            <h5>Notas contables</h5>
+            <details>
+              <summary>NIIF</summary>
+              <p class="deep">Apéndice A con referencias cruzadas.</p>
+              <details>
+                <summary>Apéndice A.1</summary>
+                <p class="deep">Texto de ejemplo con 
+                  <strong>negritas</strong>, 
+                  <em>cursivas</em> y 
+                  <code>&lt;código&gt;</code>.
+                </p>
+              </details>
+            </details>
+          </article>
+        </section>
+
+        <template id="tpl-fila">
+          <tr>
+            <td>Plantilla</td>
+            <td>—</td>
+          </tr>
+        </template>
+
+        <footer>
+          <p>Última verificación: 
+            <time datetime="2025-04-15">15 de abril de 2025</time>
+          </p>
+        </footer>
+      </article>
+    </section>
+
+    <section id="equipo" aria-labelledby="titulo-equipo" data-nivel="1">
+      <h2 id="titulo-equipo">Equipo</h2>
+
+      <article id="equipo-desarrollo" class="deep">
+        <header>
+          <h3>Desarrollo</h3>
+        </header>
+        <ul>
+          <li>Frontend
+            <ul>
+              <li>Web Components
+                <ul>
+                  <li>Lit
+                    <ul>
+                      <li>Estados</li>
+                      <li>Props
+                        <ul>
+                          <li>Tipos</li>
+                          <li>Validación</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Vanilla
+                    <ul>
+                      <li>Shadow DOM</li>
+                      <li>Slots</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>Frameworks
+                <ul>
+                  <li>React</li>
+                  <li>Vue</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Backend
+            <ul>
+              <li>Node.js</li>
+              <li>APIs
+                <ul>
+                  <li>REST</li>
+                  <li>GraphQL</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <footer>
+          <small>Contacto: dev@example.com</small>
+        </footer>
+      </article>
+
+      <article id="equipo-diseno" class="deep">
+        <header>
+          <h3>Diseño</h3>
+        </header>
+        <p>UI, UX y prototipado.</p>
+        <ol>
+          <li>Sistemas de diseño
+            <ol>
+              <li>Tokens</li>
+              <li>Componentes</li>
+              <li>Accesibilidad
+                <ol>
+                  <li>Contraste</li>
+                  <li>Focus</li>
+                  <li>Roles ARIA</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>Investigación</li>
+          <li>Pruebas con usuarios</li>
+        </ol>
+      </article>
+
+      <article id="equipo-datos" class="deep">
+        <header>
+          <h3>Datos</h3>
+        </header>
+        <aside class="deep">
+          <h4>Stack</h4>
+          <ul>
+            <li>Ingesta
+              <ul>
+                <li>Batch</li>
+                <li>Streaming
+                  <ul>
+                    <li>Kafka</li>
+                    <li>Pub/Sub</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Procesamiento
+              <ul>
+                <li>ETL</li>
+                <li>ELT</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+        <section class="deep">
+          <h4>Catálogo</h4>
+          <dl>
+            <dt data-tipo="tabla">tabla_ventas</dt>
+            <dd>Hechos de ventas diarias</dd>
+            <dt data-tipo="vista">vw_clientes_activos</dt>
+            <dd>Lista de clientes activos mensuales</dd>
+          </dl>
+        </section>
+      </article>
+    </section>
+
+    <section id="ayuda" aria-labelledby="titulo-ayuda" data-nivel="1">
+      <h2 id="titulo-ayuda">Ayuda</h2>
+      <details>
+        <summary>Preguntas frecuentes</summary>
+        <ul class="deep">
+          <li>¿Cómo exporto un reporte?
+            <ul>
+              <li>Desde el menú 
+                <strong>Reportes</strong> &rarr; botón 
+                <em>Exportar</em>.
+              </li>
+            </ul>
+          </li>
+          <li>¿Dónde consultar métricas?
+            <ul>
+              <li>Sección 
+                <a href="#reportes">Reportes</a> &rarr; subsección correspondiente.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </details>
+      <aside class="deep" role="complementary">
+        <h3>Recursos</h3>
+        <ul>
+          <li>
+            <a href="#" rel="help">Guía rápida</a>
+          </li>
+          <li>
+            <a href="#" rel="help">Manual completo</a>
+          </li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer id="site-footer" role="contentinfo">
+    <p>&copy; 
+      <span data-empresa="Acme, Inc.">Acme, Inc.</span>
+      <time datetime="2025">2025</time>
+    </p>
+    <address>
+      <p>Av. Ejemplo 123, CDMX</p>
+      <p>
+        <a href="tel:+525512345678">+52 55 1234 5678</a>
+      </p>
+    </address>
+  </footer>
+
+  <!-- Elementos variados para más práctica de DOM -->
+  <section id="extra" aria-label="Extra" hidden>
+    <ul>
+      <li data-x="1"><span>Uno</span></li>
+      <li data-x="2"><span>Dos</span></li>
+      <li data-x="3"><span>Tres</span></li>
+    </ul>
+  </section>
+
+  <script type="application/ld+json" id="json-ld-dummy">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Tarea DOM — Documento Extenso",
+      "inLanguage": "es",
+      "about": {
+        "@type": "Thing",
+        "name": "Práctica DOM"
+      }
+    }
+  </script>
+</body>
+</html>
