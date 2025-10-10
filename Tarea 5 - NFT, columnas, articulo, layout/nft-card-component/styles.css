@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root {
+    font-family: "Outfit", sans-serif;
+    background-color: hsl(217, 54%, 11%);
+    height: 100%;    
+}
+
+body {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    width: 20%;
+    background-color: hsl(216, 50%, 16%);
+    border-radius: 0.75rem;
+    box-shadow: 0rem 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);    
+}
+
+.equilibrium-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 1.5rem 1rem 1.5rem;    
+}
+
+#equilibriumPicture {
+    width: 100%;
+    max-width: 225px;
+    border-radius: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    border-bottom: 0.1rem solid hsl(215, 32%, 27%);
+}
+
+h3 {
+    color: hsl(0, 0%, 100%);
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+h3:hover {
+    color: hsl(178, 100%, 50%);
+    cursor: pointer;    
+}
+
+h4 {
+    color: hsl(178, 100%, 50%);
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    font-size: 0.8rem;
+}
+
+h5 {
+    color: hsl(215, 51%, 70%);
+    font-weight: 300;
+    margin: 0 0 1rem 0;    
+}
+
+.eth-clock-grouper {
+    display: flex;
+    align-items: stretch;
+}
+
+.eth-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    gap: 0.5rem;
+}
+
+.clock-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;    
+    width: 50%;    
+    gap: 0.5rem;    
+}
+
+footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1rem 1.5rem 1rem 1.5rem;       
+}
+
+#avatarPicture {
+    width: 100%;
+    max-width: 25px;
+    border: 1px solid hsl(0, 0%, 100%);
+    border-radius: 100%;
+}
+
+.avatar-name {
+    margin: 0 0 0 0.75rem;    
+}
+
+strong {
+    color: hsl(0, 0%, 100%);
+    font-weight: 400;
+}
+
+strong:hover {
+    color: hsl(178, 100%, 50%);
+    cursor: pointer;    
+}
