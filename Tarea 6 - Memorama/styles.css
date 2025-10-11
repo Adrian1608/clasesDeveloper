@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root {
+    --color-light-blue: #5cdaf0;
+    --color-main-grey: #dae2e4;
+    --color-main-black: #110e2b;
+    color: var(--color-main-black);
+    font-family: sans-serif,'Franklin Gothic Medium', 'Arial Narrow', Arial;    
+}
+
+header {
+    
+    border-bottom: 1px var(--color-main-grey) solid;
+
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        & .header-title,.attempts-title {
+            flex: 3;
+            font-weight: 600;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 0.9rem;
+
+            & h3 {
+                margin-left: 0.5rem;
+            }
+        }
+
+        & .attempts-title {
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        & .header-button {
+            flex: 3;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        & #restartButton {
+            padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+            margin: 0.5rem 1.5rem 0.5rem 0.5rem;
+            background-color: var(--color-light-blue);
+            color: white;
+            font-weight: 900;
+            border-radius: 0.5rem;            
+        }
+
+        & #clockIcon {
+            margin: 0.5rem 0.5rem 0.5rem 1.5rem;
+            min-width: 20px;
+            max-width: 20px;
+        }
+    }
+
+}
+
+main {
+
+    margin: 1rem 15rem 1rem 15rem;        
+
+    & .score-container {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .light-blue {
+            color: var(--color-light-blue)
+        }
+    }
+
+    & .pictures-section {
+
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 0.5rem;
+        justify-items: center;
+
+        & .flip-card-container {
+
+            display: inline;
+            position: relative;
+            background-color: var(--color-main-grey);
+            border-radius: 50%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            transform: rotateY(180deg);
+
+            & .picture-container{
+
+                background-color: var(--color-main-grey);
+                border-radius: 50%;
+                backface-visibility: hidden;                
+                overflow: hidden;                
+
+                & .main-picture {
+                    border-radius: 50%;
+                    min-width: 75px;
+                    max-width: 150px;
+                    min-height: 150px;
+                    max-height: 300px;
+                    object-fit: cover;
+                }
+
+            }            
+
+        }
+
+    }
+
+}

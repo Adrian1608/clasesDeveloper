@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorama</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li class="header-title">
+                <img id="clockIcon" src="./resources/clock-icon.png">
+                <h3>Memory Match</h3>
+            </li>
+            <li class="attempts-title">
+                <span>Attempts:&nbsp;</span><span id="currentAttempts">0</span>
+            </li>
+            <li class="header-button"><button id="restartButton" onclick="restartGame()">Restart</button></li>
+        </ul>
+    </header>
+    <main>
+        <div class="score-container">
+            <span>Score:&nbsp;</span><span class="light-blue" id="currentScore">0</span>
+        </div>
+        <section class="pictures-section">
+            <div class="flip-card-container" data-name="html" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/html.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="css" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/css.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="javascript" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/javascript.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="java" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/java.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="php" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/php.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="c++" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/c++.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="typescript" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/typescript.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="python" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/python.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="html" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/html.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="css" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/css.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="javascript" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/javascript.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="java" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/java.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="php" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/php.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="c++" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/c++.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="typescript" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/typescript.jpg">
+                </div>
+            </div>
+            <div class="flip-card-container" data-name="python" data-discovered="0">
+                <div class="picture-container">
+                    <img class="main-picture" src="./resources/python.jpg">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
