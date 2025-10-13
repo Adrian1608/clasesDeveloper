@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-carrusel de imágenes</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <main class="main-section">
+        <article class="main-container">
+            <section class="image-carousel">
+                <div class="carousel-image-container">
+                    <img class="carousel-picture active" height="400" width="800">
+                </div>
+            </section>
+            <section class="image-gallery">
+                <button onclick="carouselPreviousPicture()"><<</button>
+                <div class="gallery-image-container">
+                    <img class="gallery-picture" src="./resources/img1.jpg" height="50" width="50">
+                    <img class="gallery-picture" src="./resources/img2.jpg" height="50" width="50">
+                    <img class="gallery-picture" src="./resources/img3.jpg" height="50" width="50">
+                    <img class="gallery-picture" src="./resources/img4.jpg" height="50" width="50">                                                            
+                    <img class="gallery-picture" src="./resources/img5.jpg" height="50" width="50">                    
+                    <img class="gallery-picture" src="./resources/img6.jpg" height="50" width="50">
+                    <img class="gallery-picture" src="./resources/img7.jpg" height="50" width="50">
+                    <img class="gallery-picture" src="./resources/img8.jpg" height="50" width="50">
+                    <img class="gallery-picture" src="./resources/img9.jpg" height="50" width="50">                                                            
+                    <img class="gallery-picture" src="./resources/img10.jpg" height="50" width="50">                                                            
+                </div>
+                <button onclick="carouselNextPicture()">>></button>                
+            </section>
+        </article>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
