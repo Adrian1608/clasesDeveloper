@@ -500,7 +500,97 @@ console.log('fromEntries Example:', fromEntriesExample);
 const objectFromEntries = Object.fromEntries(fromEntriesExample);
 console.log('Object.fromEntries(fromEntriesExample):', objectFromEntries);
 
-//TODO: getOwnPropertyDescription
+//getOwnPropertyDescriptor(): regresa un objeto que define la configuración de la propiedad específica de un objeto
+const propertiesObjectExample = { color:  'blue' , size: 'XL', material: 'wool'};
+console.log('propertiesObjectExample:', propertiesObjectExample);
+const propertyDescription = Object.getOwnPropertyDescriptor(propertiesObjectExample, 'color');
+console.log('Object.getOwnPropertyDescriptor(propertiesObjectExample,"color"):', propertyDescription);
+
+//getOwnPropertyDescriptors(): regresa un objeto con todos los objetos descriptores de cada propiedad del objeto
+console.log('Object.getOwnPropertyDescriptors(propertiesObjectExample):', Object.getOwnPropertyDescriptors(propertiesObjectExample));
+
+//getOwnPropertyNames(): regresa un arreglo con los nombres de todas las propiedades del objeto
+console.log('Object.getOwnPropertyNames(propertiesObjectExample):', Object.getOwnPropertyNames(propertiesObjectExample));
+
+//getOwnPropertySymbols(): regresa un arreglo con todas las propiedades de tipo symbol en el objeto
+console.log('Object.getOwnPropertySymbols(propertiesObjectExample):', Object.getOwnPropertySymbols(propertiesObjectExample));
+const object = { };
+object[Symbol('a')] = 'localSymbol';
+object[Symbol.for('b')] = 'globalSymbol';
+Object.assign(propertiesObjectExample, object);
+console.log('propertiesObjectExample:', propertiesObjectExample);   
+console.log('Object.getOwnPropertySymbols(propertiesObjectExample):', Object.getOwnPropertySymbols(propertiesObjectExample));
+
+//getPrototypeOf(): regresa el prototipo del objeto especificado
+console.log('Object.getPrototypeOf(propertiesObjectExample):', Object.getPrototypeOf(propertiesObjectExample));
+
+//groupBy(): regresa un iterable que agrupa al iterable base según el criterio dado a la propiedad destacada
+const groupByExample = [
+  { name: "asparagus", type: "vegetables", quantity: 9 },
+  { name: "bananas", type: "fruit", quantity: 5 },
+  { name: "goat", type: "meat", quantity: 23 },
+  { name: "cherries", type: "fruit", quantity: 12 },
+  { name: "fish", type: "meat", quantity: 22 },
+];
+
+console.log('groupByExample:', groupByExample);
+console.log('Object.groupBy(groupByExample, ({ type }) => type):', Object.groupBy(groupByExample, ({ type }) => type));
+
+//hasOwn(): regresa true o false dependiendo de si el objeto tiene una propiedad específica propia (heredada no cuenta)
+const hasOwnExample = { name: 'a', size: 'b', color: 'c', birthday: 'd', material: 'e'};
+console.log('hasOwnExample:', hasOwnExample);
+console.log('Object.hasOwn(hasOwnExample,"name"):', Object.hasOwn(hasOwnExample,'name'));
+console.log('Object.hasOwn(hasOwnExample,"year"):', Object.hasOwn(hasOwnExample,'year'));
+console.log('Object.hasOwn(hasOwnExample,"material"):', Object.hasOwn(hasOwnExample,'material'));
+
+//is(): regresa true o false dependiendo de si los valores son el mismo (true = lo son, false = no)
+console.log('Object.is("1", 1):', Object.is("1", 1));
+console.log('Object.is(NaN, NaN):', Object.is(NaN, NaN));
+console.log('Object.is(-0, 0):', Object.is(-0, 0));
+const isExample = {};
+console.log('isExample:', isExample);
+console.log('Object.is(isExample, {}):', Object.is(isExample, {})); //no son el mismo porque para objetos compara espacio en memoria (referencia)
+
+//isExtensible(): regresa true o false dependiendo de si el objeto es 'extensible' (permite añadir más propiedades)
+const isExtensibleExample = {property1: 'a'};
+console.log('isExtensibleExample:', isExtensibleExample);
+console.log('Object.isExtensible(isExtensibleExample):', Object.isExtensible(isExtensibleExample));
+Object.preventExtensions(isExtensibleExample);
+console.log('Object.preventExtensions(isExtensibleExample)');
+console.log('Object.isExtensible(isExtensibleExample):', Object.isExtensible(isExtensibleExample));
+
+//isFrozen(): regresa true o false dependiendo de si el objeto está congelado (se le ha aplicado freeze)
+const isFrozenExample = {property2: 'b'};
+console.log('isFrozenExample:', isFrozenExample);
+console.log('Object.isFrozen(isFrozenExample):', Object.isFrozen(isFrozenExample));
+Object.freeze(isFrozenExample);
+console.log('Object.freeze(isFrozenExample)');
+console.log('Object.isFrozen(isFrozenExample):', Object.isFrozen(isFrozenExample));
+
+//isSealed(): regresa true o false dependiendo de si el objeto está sellado (se le ha aplicado seal)
+const isSealedExample = { property3: 42 };
+console.log('Object.isSealed(isSealedExample):', Object.isSealed(isSealedExample));
+Object.seal(isSealedExample);
+console.log('Object.seal(isSealedExample)');
+console.log('Object.isSealed(isSealedExample):', Object.isSealed(isSealedExample));
+
+//keys(): regresa un arreglo con strings de los nombres de los keys del objeto
+const keysExample = { key1: 'a', key2: 'b', key3: 'c', key4: 'd', key5: 'e' };
+console.log('keysExample:', keysExample);
+console.log('Object.keys(keysExample):', Object.keys(keysExample));
+
+//preventExtensions(): evita que un objeto pueda ser extendido, osea que se le asignen más propiedades
+const preventExtensionsExample = {};
+console.log('preventExtensions:', preventExtensionsExample);
+Object.preventExtensions(preventExtensionsExample);
+console.log('Object.preventExtensions(preventExtensionsExample) applied, trying to define property4...');
+try {
+    Object.defineProperty(preventExtensionsExample, 'property4', {value: 50})
+}catch(e){
+    console.log("Object.defineProperty(preventExtensionsExample, 'property4', {value: 50}):", e);
+}
+
+
 
 //Métodos de instancia
 
