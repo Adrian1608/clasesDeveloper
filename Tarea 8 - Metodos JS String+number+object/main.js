@@ -590,7 +590,92 @@ try {
     console.log("Object.defineProperty(preventExtensionsExample, 'property4', {value: 50}):", e);
 }
 
+//seal(): devuelve el mismo objeto, sella un objeto, previene extensiones y hace las propiedades no configurables
+const sealExample = { property5: 'valor1'};
+console.log('sealExample:', sealExample);
+console.log('Object.seal(sealExample):', Object.seal(sealExample));
+sealExample.property5 = 'newValue';
+console.log('sealExample modified:', sealExample);
+console.log('delete sealExample.property5:', delete sealExample.property5);
+console.log('sealExample:', sealExample);
 
+//setPrototypeOf(): asigna como prototipo del objeto especificado a otro objeto o null
+const setPrototypeOfExample = {};
+console.log('setPrototypeOfExample.protoValue:', setPrototypeOfExample.protoValue);
+
+const prototype = { protoValue: 'a' };
+console.log('Object.setPrototypeOf(setPrototypeOfExample, prototype):', Object.setPrototypeOf(setPrototypeOfExample, prototype));
+console.log('setPrototypeOfExample.protoValue:', setPrototypeOfExample.protoValue);
+
+//values(): regresa un arreglo con los values que estén relacionados con una key
+console.log('keysExample:', keysExample);
+console.log('Object.values(keysExample):', Object.values(keysExample));
 
 //Métodos de instancia
 
+//__defineGetter__(): relaciona la propiedad de un objeto con una función que será llamada cuando se busque la propiedad
+const defineGetterExample = {};
+defineGetterExample.__defineGetter__('getterProperty', function(){
+    return 'soy el getter';
+});
+console.log('defineGetterExample.getterProperty:', defineGetterExample.getterProperty); //aqui al usar getterProperty llama a la función definida
+
+//__defineSetter__(): relaciona la propiedad de un objeto con una función que será llamada cuando se intente cambiar la propiedad
+const defineSetterExample = {};
+defineSetterExample.__defineSetter__('setterProperty', function(value){
+    this.setValue = value;
+});
+console.log('defineSetterExample:', defineSetterExample);
+defineSetterExample.setterProperty = 5000; //acá al asignar setterProperty, llama a la función definida
+console.log('defineSetterExample.setterProperty:', defineSetterExample.setterProperty); //undefined porque no hay una asignación normal, sino que llama la función
+console.log('defineSetterExample.setValue:', defineSetterExample.setValue);
+
+//__lookupGetter__(): devuelve la función relacionada con un getter respecto a la propiedad específica
+console.log("defineGetterExample.__lookupGetter__('getterProperty'):", defineGetterExample.__lookupGetter__('getterProperty'));
+
+//__lookupSetter__(): devuelve la función relacionada con un setter respecto a la propiedad específica
+console.log("defineSetterExample.__lookupSetter__('setterProperty'):", defineSetterExample.__lookupSetter__('setterProperty'));
+
+//hasOwnProperty(): devuelve true o false en base a si el objeto posee una propiedad específica
+console.log('hasOwnExample:', hasOwnExample);
+console.log('hasOwnExample.hasOwnProperty("name"):', hasOwnExample.hasOwnProperty("name"));
+console.log('hasOwnExample.hasOwnProperty("year"):', hasOwnExample.hasOwnProperty("year"));
+console.log('hasOwnExample.hasOwnProperty("material"):', hasOwnExample.hasOwnProperty("material"));
+//OJO: suele ser mejor usar el método estático hasOwn por ser más robusto, aunque tienen el mismo fin
+
+//isPrototypeOf(): devuelve true o false en base a si este objeto existe en la cadena de prototipos de otro objeto
+console.log('setPrototypeOfExample:', setPrototypeOfExample);
+console.log('prototype:', prototype);
+console.log('prototype.isPrototypeOf(setPrototypeOfExample):', prototype.isPrototypeOf(setPrototypeOfExample));
+console.log('setProptotypeOfExample.isPrototypeOf(prototype):', setPrototypeOfExample.isPrototypeOf(prototype));
+
+//propertyIsEnumerable(): devuelve true o false en base a si la propiedad en cuestión es enumerable
+const enumerableExampleObject = {};
+const enumerableExampleArray = [];
+enumerableExampleObject.value = 42;
+enumerableExampleArray[0] = 42;
+
+console.log('enumerableExampleObject:', enumerableExampleObject);
+console.log('enumerableExampleArray:', enumerableExampleArray);
+console.log('enumerableExampleObject.propertyIsEnumerable("value")', enumerableExampleObject.propertyIsEnumerable("value"));
+console.log('enumerableExampleArray.propertyIsEnumerable(0)', enumerableExampleArray.propertyIsEnumerable(0));
+console.log('enumerableExampleArray.propertyIsEnumerable("length")', enumerableExampleArray.propertyIsEnumerable("length"));
+
+//toLocaleString(): devuelve un string representando el objeto, considerando ciertas reglas locales específicas (sobreescribible por objetos derivados por la lógica de type coercion)
+const toLocaleStringDate = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+console.log('toLocaleStringDate:', toLocaleStringDate);
+console.log('toLocaleStringDate.toLocaleString("ar-EG"):', toLocaleStringDate.toLocaleString("ar-EG"));
+
+const toLocaleStringNumber = 123456.789;
+console.log('toLocaleStringDate:', toLocaleStringNumber);
+console.log('toLocaleStringNumber.toLocaleString("de-DE"):', toLocaleStringNumber.toLocaleString("de-DE"));
+
+//toString(): devuelve un string representando el objeto (sobreescribible por objetos derivados por la lógica de type coercion)
+const toStringExample = { name: 'Adrian', location: 'Far Far Away'};
+console.log('toStringExample:', toStringExample);
+console.log('toStringExample.toString():', toStringExample.toString());
+
+//valueOf(): devuelve el valor del objeto como tal
+const valueOfExample = { valor: 38322 , valor2: 39121};
+console.log('valueOfExample:', valueOfExample);
+console.log('valueOfExample.valueOf():', valueOfExample.valueOf());
