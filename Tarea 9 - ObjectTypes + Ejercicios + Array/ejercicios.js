@@ -201,9 +201,9 @@ Documenta las funciones con comentarios JSDoc si vas a entregarlas en un repo.
 // 1) Listado plano de contactos
 
 /**
- * Devuelve un arreglo resumido con id, name, email y ciudad de cada persona en el arreglo original
+ * Devuelve un arreglo resumido con id, name, email, ciudad y trabajo principal en base al mayor salario de cada persona en el arreglo original
  * @param {Array} people - Arreglo de personas con campos completos
- * @returns {Array} - Arreglo de personas con campos resumidos en id, name, email y ciudad
+ * @returns {Array} - Arreglo de personas con campos resumidos en id, name, email, ciudad y trabajo primario
  */
 function getContacts(people) {
   if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');
