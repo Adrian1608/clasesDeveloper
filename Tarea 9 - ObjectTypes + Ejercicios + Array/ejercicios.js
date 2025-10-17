@@ -1,5 +1,3 @@
-/**
-
 const people = [
   {
     id: 1,
@@ -109,9 +107,307 @@ const people = [
   }
 ];
 
+//RESOLUCIÓN: 
+
+// 1) Listado plano de contactos
+function getContacts(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');
+
+  const result = [];
+  [...people].forEach((person) => {
+
+    const newPerson = {
+      id: person.id,
+      name: person.name,
+      email: person.email,
+      city: person.address.city
+    };
+    const primaryJob = person.jobs.reduce((accumulator, person) => (person.salary > accumulator ? person : accumulator), 0);
+    newPerson.primaryJob = primaryJob.title ? primaryJob.title : null;
+
+    result.push(newPerson);
+  });
+
+  return result;
+}
+
+console.log('1) getContacts(people):', getContacts(people));
+
+// 2) Buscar por ciudad y ordenar por edad descendente
+function findByCity(people, city) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');  
+  if(typeof city !== 'string') throw new TypeError('city parameter is not a string');
+
+  const result = [...people].filter((person) => person.address.city === city);
+  //Ordenar por age desc
+  result.sort((personA, personB) => personB.age - personA.age );
+  return result;
+}
+
+console.log('2) findByCity(people, "Guadalajara"):', findByCity(people,'Guadalajara'));
+
+// 3) Total de salarios por persona (reduce + suma)
+function sumSalaries(person) {
+  return person.jobs.reduce((total, person) => (total += person.salary), 0);
+}
+
+function totalSalariesAll(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');  
+  const result = [];
+  
+  [...people].forEach((person) => {
+    const newPerson = {
+      id: person.id,
+      name: person.name,
+      totalSalary: sumSalaries(person)
+    };
+    result.push(newPerson);
+  });
+
+  result.sort((personA, personB) => personB.totalSalary - personA.totalSalary);
+  return result;
+}
+
+console.log('3) Total de salarios por persona (reduce+suma):', totalSalariesAll(people));
+
+// 4) Personas que tienen familiares menores de X años
+function withMinors(people, edad) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');  
+  if(typeof edad !== 'number') throw new TypeError('edad parameter is not a number');
+
+  //Solo para aclarar: se hace un filter, en que si es que algún miembro familiar (some) es menor a la edad, manda true y pasa filtro
+  return [...people].filter((person) => person.family.some((familiar) => familiar.age < edad ));  
+}
+
+console.log('4) Personas que tienen familiares menores de 18 años:', withMinors(people, 18));
+
+// 5) Agrupar personas por estado
+function groupByState(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');  
+  
+  return Object.groupBy([...people], ({address}) => address.state);
+}
+
+console.log('5) Agrupar personas por estado:', groupByState(people));
+
+// 6) Balance de transacciones por persona (credit - debit)
+function transactionBalance(person) {
+  return person.transactions.reduce((accumulator, transaction) => 
+    (transaction.type === 'credit' ? accumulator -= transaction.amount : accumulator += transaction.amount ) , 0);
+}
+
+function balancesAll(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');  
+
+  const result = [];
+
+  [...people].forEach((person) => {
+    const newPerson = {
+      id: person.id,
+      name: person.name,
+      balance: transactionBalance(person)
+    };
+    result.push(newPerson);
+  });
+
+  result.sort((personA, personB) => personA.balance - personB.balance );
+
+  return result;
+}
+
+console.log('6) Balance de transacciones por persona:', balancesAll(people));
+
+// 7) Buscar el skill más común entre todas las personas
+function mostCommonSkill(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array');  
+
+  const skillCount = [...people].reduce((accumulator, person) => {
+    person.skills.forEach((skill) => {
+      accumulator[skill] = (accumulator[skill] || 0) + 1;
+    });
+    return accumulator;
+  }, {});
+
+  const result = Object.entries(skillCount).reduce((accumulator, skill) => (accumulator[1] < skill[1] ? skill : accumulator));
+  return result;
+
+}
+
+console.log('7) Buscar el skill más común entre todas las personas:', mostCommonSkill(people));
+
+// 8) Sumar gastos por ciudad (reduce + flatten)
+function expensesByCity(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array'); 
+
+  const transactions = [...people].flatMap(person => 
+    person.transactions.map(transaction => ({
+      city: person.address.city,
+      amount: transaction.amount,
+      type: transaction.type
+    }))
+  );
+
+  return transactions.reduce((accumulator, transaction) => {
+    if(transaction.type === 'debit'){
+      accumulator[transaction.city] = (transaction.amount || 0) + transaction.amount;
+    }
+    return accumulator;
+  }, {});  
+
+}
+
+console.log('8) Sumar gastos por ciudad:', expensesByCity(people));
+
+// 9) Obtener árbol familiar plano
+function flattenFamilies(people) {
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array'); 
+
+  return [...people].flatMap(person => 
+    person.family.map(familiar => ({
+      personId: person.id,
+      personName: person.name,
+      relation: familiar.relation,
+      relativeName: familiar.name,
+      relativeAge: familiar.age
+    }))
+  );
+
+}
+
+console.log('9) Obtener árbol familiar plano:', flattenFamilies(people));
+
+// 10) Encontrar personas "multi-job" con promedio salarial
+function multiJobAverages(people){
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array'); 
+
+  return result = [...people].filter((person => person.jobs.length > 1)).map(person => ({
+    id: person.id,
+    name: person.name,
+    avgSalary: person.jobs.reduce((accumulator, job) => (accumulator + job.salary), 0) / person.jobs.length
+  })
+);
+
+}
+
+console.log('10) Encontrar personas "multi-job" con promedio salarial:', multiJobAverages(people));
+
+// 11) Filtrar emails válidos y formatearlos
+function validEmails(people){  
+  if(!Array.isArray(people)) throw new TypeError('people parameter is not an array'); 
+
+  // /^[^\s@]+@[^\s@]+\.[a-z]+$/ : basicamente, valida que los textos antes y después del @ no tiene espacios en blanco o el mismo @
+  // Luego, llega al punto, en que asegura que la parte final sea de a-z, osea .com, .org, etc
+  return emails = [...people].map((person) => person.email.trim().toLowerCase()).filter((email) => /^[^\s@]+@[^\s@]+\.[a-z]+$/.test(email));
+}
+
+console.log('11) Filtrar emails válidos y formatearlos:', validEmails(people));
+
+//13) Merge de transacciones duplicadas:
+const examplePerson =
+  {
+    id: 1,
+    name: "Ana Ruiz",
+    age: 34,
+    email: "ana.ruiz@example.com",
+    address: { city: "Guadalajara", state: "JAL", zip: "44100", street: "Av. Vallarta 1200" },
+    jobs: [
+      { company: "BBVA", title: "Frontend Dev", since: 2020, salary: 45000 },
+      { company: "Freelance", title: "Consultant", since: 2018, salary: 12000 }
+    ],
+    family: [
+      { relation: "spouse", name: "Luis Ruiz", age: 36 },
+      { relation: "child", name: "Sofia Ruiz", age: 6 }
+    ],
+    skills: ["js", "lit", "css"],
+    transactions: [
+      { id: "t1", date: "2025-01-05", amount: 200, type: "debit" },
+      { id: "t2", date: "2025-02-10", amount: 150, type: "credit" },
+      { id: "t1", date: "2025-01-05", amount: 300, type: "debit" },
+      { id: "t2", date: "2025-02-10", amount: 400, type: "credit" }      
+    ]
+  };
+
+function mergeTransactions(person) {
+
+  const mergedResults = person.transactions.reduce((accumulator, transaction) => {
+
+    if(accumulator[transaction.id]){
+      accumulator[transaction.id].amount += transaction.amount;
+    }else{
+      accumulator[transaction.id] = {... transaction};
+    }
+    return accumulator;
+
+  }, {}); 
+
+  person.transactions = mergedResults;
+  return person;
+}
+
+console.log('13) Merge de transacciones duplicadas:', mergeTransactions(examplePerson));
+
+
+// 15) Agrupar por decade de edad y contar
+function ageBuckets(people) {
+
+  const peopleGroups = [...people].map((person) => ({
+    age: person.age,
+    ageGroup: `${(Math.floor(person.age/10)*10)}s`
+  }));
+
+  return peopleGroups.reduce((accumulator, person) => {
+    accumulator[person.ageGroup] = (accumulator[person.ageGroup] || 0) + 1;
+    return accumulator;
+  }, {});
+
+}
+
+console.log('15) Agrupar por decade de edad y contar:', ageBuckets(people));
+
+// 16) Pipeline de transformación con funciones puras
+function compose(... funcs){
+
+};
+
+
+console.log('Objeto final no mutado:', people);
+/*
+16) Pipeline de transformación con funciones puras (compose)
+
+Tarea: Crear compose(...funcs) y usarlo en processPeople = compose(filterAdults, mapToSummary, sortByName) donde:
+
+filterAdults filtra age >= 18,
+mapToSummary transforma a { id, name, city },
+sortByName ordena alfabéticamente.
+
+17) Implementar groupBy genérico y usarlo
+
+Tarea: groupBy(list, fn) donde fn devuelve la clave. Usarlo para agrupar personas por primaryJobCompany (empresa del job con mayor salario). Si no tiene jobs → "unemployed".
+
+19) Estadísticas por rango salarial
+
+Tarea: salaryStats(people) que calcule sobre todos los jobs:
+
+min, max, avg, median, percentiles (25, 50, 75).
+Cómo: extraer todos los salarios en un array, ordenarlo y calcular métricas (reduce, Math).
+
+Restricciones
+
+Para todos los ejercicios: evita mutar el people original (usa copias si modificas).
+Usa métodos funcionales (map, filter, reduce, flatMap) cuando aplique;
+Añade validación de entrada (por ejemplo, si people no es array → lanzar TypeError).
+Documenta las funciones con comentarios JSDoc si vas a entregarlas en un repo.
+ * 
+ * 
+ * 
+ */
+
+/* ENUNCIADOS: 
+
 1) Listado plano de contactos
 
-Tarea: crear getContacts(people) que devuelva un arreglo plano con objetos { id, name, email, city, primaryJob }, donde primaryJob es el title del job con mayor salary (si no hay jobs → null).
+Tarea: crear getContacts(people) que devuelva un arreglo plano con objetos { id, name, email, city, primaryJob }, 
+donde primaryJob es el title del job con mayor salary (si no hay jobs → null).
 Salida esperada (parcial): { id:1, name:"Ana Ruiz", email:"ana.ruiz@example.com", city:"Guadalajara", primaryJob:"Frontend Dev" }
 
 2) Buscar por ciudad y ordenar por edad descendente
