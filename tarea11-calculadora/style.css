@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin : 0;
+    border: none;
+}
+
+@font-face {
+    font-family: TimeNormal;
+    src: url('./Time\ Normal.ttf');
+}
+
+:root {
+    height: 100vh;
+    --general-background: #a4d3d6;
+    --calculator-background: #7a7676;
+    --answer-background: #96d683;    
+    --button-background: #3a3e44;
+    --button-pressed-background: #6e7175;    
+    --delete-button-background: #e97171;
+    font-family: TimeNormal;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--general-background);
+
+    & .main-structure {
+
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+
+        & .calculator-background {
+            background-color: var(--calculator-background);
+            padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0.5rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);    
+
+            & .answer-container {
+                background-color: var(--answer-background);
+                padding: 2rem;
+                border-radius: 1rem;
+                font-size: 1.5rem;
+                text-align: end;
+
+                & #answerContainer {
+                    overflow: hidden;
+                    font-weight: bold;
+                    width: 16rem;
+                    white-space: nowrap;
+                }
+            }
+
+            & .buttons-container {
+
+                margin-top: 1rem;
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap: 0.5rem;
+
+                & .calculator-button {
+                    background-color: var(--button-background);
+                    padding: 1rem;
+                    border-radius: 1rem;
+                    text-align: center;
+                    color: #ffff;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+
+                    &:active {
+                        background-color: var(--button-pressed-background);
+                    }
+                }
+
+                & .ce-button {
+                    background-color: var(--delete-button-background);
+                }
+
+            }
+
+        }
+
+    }
+
+}
