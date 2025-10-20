@@ -17,11 +17,6 @@ function executeOperation(operation) {
     return operation;    
 }
 
-const buttonFunctions = {
-    '=': (operation) => answerContainer.innerHTML = executeOperation(operation),
-    'CE': () => answerContainer.innerHTML = '0'
-    }
-
 function updateAnswerContainer(value) {
     if(answerContainer.innerHTML === '0' || answerContainer.innerHTML === 'Error'){
         answerContainer.innerHTML = value;
