@@ -13,6 +13,7 @@ loadMoreButton.addEventListener('click', () => {
     callAPI(rules.limit, rules.offset);
 });
 
+//TODO: Definir correctamente el render para las cards
 const renderPokemon = (data) => {
     console.log('Renderizando...', data);
     const newPokemonCard = document.createElement('div');
