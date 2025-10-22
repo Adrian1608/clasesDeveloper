@@ -161,7 +161,7 @@ const createTimerObj = {
             self.arrowCounter++;
             console.log('counter normal:', self.arrowCounter);
             console.log('normal default this:', this); //Apunta al objeto global (default binding)
-        },100); //0.2s            
+        },100); //0.1s            
     } ,
     start: function() { //This es el createTimerObj objeto (Implicit binding)
         return {normalCounter: this.normalCounter, arrowCounter: this.arrowCounter};
