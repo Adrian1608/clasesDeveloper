@@ -7,16 +7,33 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div id="spinnerContainer">
+        <div id="spinner">
+            <img src="./resources/Poké_Ball_icon.svg.png">
+            <h1>Cargando...</h1>
+        </div>
+    </div>            
     <header>
-
+        <div class="header-container">
+            <div class="logo-container">
+                <img id="header-logo" src="./resources/pokeapi_256.3fa72200.png">
+            </div>
+            <div class="user-container">
+                <a href="" target="_blank">Log out</a>
+            </div>
+        </div>
     </header>
     <main>
         <section id="cardsSection">
         </section>
-        <button id="loadMore">CARGAR MÁS</button>        
+        <div class="button-wrapper">
+            <button id="loadMore">Ver más...</button>        
+        </div>
     </main>
     <footer>
-
+        <div class="footer-container">
+            <h4>Consuming API: https://pokeapi.co/</h4>
+        </div>
     </footer>
     <script src="./main.js"></script>
 </body>
