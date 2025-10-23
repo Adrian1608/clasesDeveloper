@@ -7,7 +7,6 @@ const spinner = document.querySelector('#spinnerContainer');
 //limit: Limite de pokemones a llamar por fetch
 //offset: Desde donde sigue la llamada, 0 a 10, 10 a 20, 20 a 30, ...
 const rules = { limit: 10, offset: 0 };
-let isLoading = false;
 
 //Lazy-loading button
 loadMoreButton.addEventListener('click', () => {
@@ -16,6 +15,7 @@ loadMoreButton.addEventListener('click', () => {
 });
 
 const renderPokemon = (data, description) => {
+
     //Declaración del container de la card
     const newCardContainer = document.createElement('div');
     newCardContainer.classList.add('card-container');
@@ -24,7 +24,31 @@ const renderPokemon = (data, description) => {
     const newPokemonCard = document.createElement('div');
     newPokemonCard.classList.add('card-inner');
 
-    //Declaración de la card-front
+    //Generación del card-front
+    const pokemonFront = generatePokemonCardFront(data, description);
+
+    //Generación del card-back - data
+    const pokemonBack = generatePokemonCardBack(data);
+
+    //Declaración del botón para voltear las cards
+    const flipButtonFront = cardButtonDefiner('rotateY(180deg)', newPokemonCard);
+    const flipButtonBack = cardButtonDefiner('rotateY(360deg)', newPokemonCard);
+
+    //Se asignan los botones tanto al card-front como card-back
+    pokemonFront.appendChild(flipButtonFront);
+    pokemonBack.appendChild(flipButtonBack);
+
+    //Se añaden el card-front y card-back al card-inner (contenedor de ambos)
+    newPokemonCard.appendChild(pokemonFront);
+    newPokemonCard.appendChild(pokemonBack);    
+
+    //Se añade la card al card-container y este se añade finalmente a su sección
+    newCardContainer.appendChild(newPokemonCard);
+    cardsSection.appendChild(newCardContainer);
+};
+
+//Con los parámetros de datos y descripción del pokemon, genera el frente de la card
+const generatePokemonCardFront = (data, description) => {
     const pokemonFront = document.createElement('div');
     pokemonFront.classList.add('card-front');
     const pokemonImage = document.createElement('img');
@@ -37,8 +61,11 @@ const renderPokemon = (data, description) => {
     pokemonDescription.innerHTML = description.flavor_text_entries[0].flavor_text;
     pokemonFront.appendChild(pokemonName);
     pokemonFront.appendChild(pokemonDescription);
+    return pokemonFront;    
+};
 
-    //Declaración de la card-back
+//Con los parámetros de datos del pokemon, genera la parte trasera de la card
+const generatePokemonCardBack = (data) => {
     const pokemonBack = document.createElement('div');
     pokemonBack.classList.add('card-back'); 
     const pokemonPicture = document.createElement('img');
@@ -64,23 +91,9 @@ const renderPokemon = (data, description) => {
         listElement.innerHTML = type.type.name.toUpperCase();
         types.appendChild(listElement);
     });
+
     pokemonBack.appendChild(types);
-
-    //Declaración del botón para voltear las cards
-    const flipButtonFront = cardButtonDefiner('rotateY(180deg)', newPokemonCard);
-    const flipButtonBack = cardButtonDefiner('rotateY(360deg)', newPokemonCard);
-
-    //Se asignan los botones tanto al card-front como card-back
-    pokemonFront.appendChild(flipButtonFront);
-    pokemonBack.appendChild(flipButtonBack);
-
-    //Se añaden el card-front y card-back al card-inner (contenedor de ambos)
-    newPokemonCard.appendChild(pokemonFront);
-    newPokemonCard.appendChild(pokemonBack);    
-
-    //Se añade la card al card-container y este se añade finalmente a su sección
-    newCardContainer.appendChild(newPokemonCard);
-    cardsSection.appendChild(newCardContainer);
+    return pokemonBack;
 };
 
 //Función para definir los botones en base a cómo volteará la card y el contexto que debe usar
@@ -108,13 +121,16 @@ const callAPI = async (limit, offset) => {
     const result = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
     const data = await result.json();
     const pokemons = data.results;
-    pokemons.forEach(async (pokemon) => {
-        const result = await fetch(pokemon.url);
-        const data = await result.json();
-        const descriptionPromise = await fetch(data.species.url)
-        const description = await descriptionPromise.json();
-        renderPokemon(data, description);
-    });
+    
+    await Promise.all(
+        pokemons.map(async (pokemon) => {
+            const result = await fetch(pokemon.url);
+            const data = await result.json();
+            const descriptionPromise = await fetch(data.species.url)
+            const description = await descriptionPromise.json();
+            renderPokemon(data, description);
+        })
+    );
 
     showLoading(false);
 };
