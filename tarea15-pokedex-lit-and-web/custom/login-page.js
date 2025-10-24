@@ -98,6 +98,7 @@ export class LoginPage extends LitElement{
 
     constructor() {
         super();
+        this.emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]+$/;
     }
 
     _handleKeyDown(event){
@@ -108,16 +109,31 @@ export class LoginPage extends LitElement{
 
     validateEmailAndPassword(){
         const email = this.shadowRoot.querySelector('#email');
+        if(!this.emailRegex.test(email.value)){
+            this.showErrorMessage('Correo no válido');
+            return;
+        }
         const password = this.shadowRoot.querySelector('#password');
-        const errorMessage = this.shadowRoot.querySelector('.error-message');        
 
         if(email.value === 'eladrian1608@gmail.com' && password.value === 'contraDeAdmin'){
-            errorMessage.style.display = 'none';
+            this.hideErrorMessage();
             sessionStorage.setItem('user', email.value);
             window.open('../pages/main.html','_self');
         }else{
-            errorMessage.style.display = 'block';
+            this.showErrorMessage('Usuario no válido');
         }
+    }
+
+    showErrorMessage(message){
+        const errorMessage = this.shadowRoot.querySelector('.error-message');                                
+        errorMessage.innerHTML = message;            
+        errorMessage.style.display = 'block';        
+    }
+
+    hideErrorMessage(){
+        const errorMessage = this.shadowRoot.querySelector('.error-message');                                
+        errorMessage.style.display = 'none';
+        
     }
 
     render() {
@@ -132,7 +148,7 @@ export class LoginPage extends LitElement{
                 <input id="email" type="email" @keydown="${this._handleKeyDown}">
                 <label for="password">Contraseña:</label>
                 <input id="password" type="password" @keydown="${this._handleKeyDown}">
-                <div class="error-message">Usuario no válido</div>
+                <div class="error-message"></div>
                 <button @click="${() => this.validateEmailAndPassword()}">Entrar</button>        
             </div>
         </section>
