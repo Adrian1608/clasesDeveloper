@@ -23,15 +23,6 @@ export class CardsSection extends HTMLElement{
         console.log('se ejecuto disconnectedCallback');
     }
 
-    static observedAttributes = ['_pokemons'];    
-
-    attributeChangedCallback(attr, oldValueAttr, valueAttr) {
-        if(attr === '_pokemons') {
-            console.log(attr, valueAttr);
-            this._pokemons = valueAttr;
-        }
-    }    
-
     render() {
         const template = document.createElement('template');
         template.innerHTML = `
