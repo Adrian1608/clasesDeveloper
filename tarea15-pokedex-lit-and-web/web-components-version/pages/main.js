@@ -1,5 +1,5 @@
-import { PokemonCard } from '../custom/pokemon-card';
-import { CardsSection } from '../custom/cards-section';
+import { PokemonCard } from "../custom/pokemon-card.js";
+import { CardsSection } from "../custom/cards-section.js";
 
 //Definición de custom elements
 customElements.define('pokemon-card', PokemonCard);
@@ -15,7 +15,7 @@ const spinner = document.querySelector('#spinnerContainer');
 const rules = { limit: 10, offset: 0 };
 
 //Lazy-loading button
-loadMoreButton.addEventListener('click', () => {
+loadMoreButton.addEventListener('click', (event) => {
     rules.offset += rules.limit;
     callAPI(rules.limit, rules.offset);
 });
