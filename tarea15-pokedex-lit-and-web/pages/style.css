@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root {
+    --background-color: #f85454;    
+    --main-section-color: #e2dada;
+    --footer-color: #363232;    
+    --cards-color: #8999f5;
+    --flip-button-pressed-color: #f78787;    
+    --picture-background: #ffff;
+    --load-more-hover-color: #f56f6f;
+    --load-more-active-color: #f78787;        
+    font-size: 0.8rem;
+}
+
+body {
+
+    & header {
+
+        width: 100%;
+        background-color: var(--background-color);
+
+        & .header-container {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            & .logo-container {
+
+                flex: 1;
+                text-align: start;
+                margin: 0.5rem 0 0.5rem 2rem;
+
+                & img{
+                    width: 98.5px;
+                    height: 39.5px;
+                }
+
+            }
+
+            & .user-container {
+                flex: 2;
+                display: flex;
+                justify-content: flex-end;
+                margin: 0.5rem 2rem 0.5rem 0;               
+                
+                & .user-name-container {                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    color: var(--picture-background);
+                    flex-wrap: wrap;
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                    padding: 1rem; 
+                }
+
+                & #logOutButton{
+                    font-size: 1.1rem;
+                    border-radius: 2rem;
+                    padding: 0rem 2rem;
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    font-weight: 600;
+                    text-decoration: none;
+                    background-color: #e2dada;
+
+                    &:hover {
+                        background-color: #d4cfcf;
+                    }
+
+                    &:active {
+                        background-color: #b4aeae;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    & main {
+        background-color: var(--main-section-color);
+
+        & .button-wrapper {
+
+            display: flex;
+            justify-content: center;
+            padding-bottom: 1rem;
+
+            & #loadMore {
+                position: relative;
+                background-color: var(--background-color);
+                color: var(--main-section-color);
+                margin-bottom: 1rem;
+                padding: 1rem 2rem 1rem 2rem;
+                border-radius: 2rem;
+                font-weight: 600;
+
+                &:hover {
+                    background-color: var(--load-more-hover-color);
+                }
+
+                &:active {
+                    background-color: var(--load-more-active-color);
+                }
+
+            }
+
+        }
+
+    }        
+
+    & footer{
+        width: 100%;
+        background-color: var(--footer-color);
+
+        & .footer-container {
+            display: flex;
+            justify-content: center;
+            color: #ffff;
+            padding: 2rem;    
+            font-size: 1.25rem;        
+        }
+    }    
+
+}
+
+#spinnerContainer {
+
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;    
+    padding: 1rem;
+    z-index: 1000;    
+    background-color: rgba(0,0,0,0.5);
+    color: #ffff;    
+
+    #spinner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 1rem;
+
+        & img {
+            display: inline-block;
+            position: absolute;
+            top: 40%;
+            left: 47%;
+            align-items: center;
+            align-content: center;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        & h1 {
+            display: flex;
+            align-items: center;
+            align-content: center;
+        }
+
+    }
+}
+           
+/*Se definen los keyframes para la animación spin que se le asignó a la imagen de carga de la pokeball*/
+@keyframes spin {
+    from {  transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
